@@ -1,10 +1,10 @@
 /*
- * @Descripttion: shellSort----选择排序
+ * @Descripttion: shellSort----希尔排序
  * @version: 
  * @Author: 鹿角兔子
  * @Date: 2021-06-02 17:09:30
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-02 18:42:16
+ * @LastEditTime: 2021-06-20 21:07:12
  */
 
 // 定义常数gap，将距离为gap的多个元素划分为一组，并在组内各自进行排序
@@ -23,3 +23,14 @@ function shellSort(arr) {
   }
   return arr;
 }
+
+/** 时间复杂度
+ * 最优时间复杂度: 最外层的gap循环为O(log2 n)次；第二层i循环一共是为O(n - n / 2) + O(n - n / 4) +...+ O(n)，都可以简化为O(n)
+ * 且不进行第三层j循环，即O(n log2 n)次
+ * 
+ * 最差时间复杂度：第三层j循环每次完全循环，则在最优时间复杂度*n，即O(n^2 * log2 n)，简化为O(n^2)
+ */
+
+/** 空间复杂度 O(1)
+ * 算法进行原地排序，所以为O(1)
+ */

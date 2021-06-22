@@ -4,7 +4,7 @@
  * @Author: 鹿角兔子
  * @Date: 2021-06-20 16:24:52
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-20 16:40:14
+ * @LastEditTime: 2021-06-20 23:05:58
  */
 
 /**
@@ -14,6 +14,12 @@
  * @param {*} end
  * @return {*}
  */
+
+/** 时间复杂度 
+ * 最好时间复杂度：每次分区长度均匀，即递归深度为(log2 n) + 1，并且各自需要执行while循环n/2次，即O(n * log n)
+ * 最坏时间复杂度：序列为有序序列，每次分区长度极不均匀，每次短区间长度仅为1，因此长区间需要递归n - 1次，即递归深度为O(n - 1) + O(n),
+ * 各自需要执行while循环n/2次，即O((2n - 1)*n)，简化为O(n ^ 2)
+*/
 function quickSort(array) {
   return innerQuickSort(array, 0, array.length - 1);
   function innerQuickSort(array, start, end) {
@@ -55,6 +61,10 @@ function quickSort(array) {
  * @param {*} array
  * @return {*}
  */
+
+/** 空间复杂度 
+ * 空间复杂度随时间复杂度变化，在两种时间复杂度的基础上*2，即O(2n * logn) 和O(2*n^2)简化为O(n * log n)和O(n ^ 2)
+*/
 function quickSortExart(array) {
   const len = array.length;
   if (len <= 1) {

@@ -4,7 +4,7 @@
  * @Author: 鹿角兔子
  * @Date: 2021-06-20 16:43:19
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-20 17:22:53
+ * @LastEditTime: 2021-06-20 23:16:19
  */
 
 function heapSort(arr) {
@@ -27,7 +27,7 @@ function heapSort(arr) {
     let right = left + 1;
     let min = index;
     // 比较左右子节点最大值
-    if (left < len && arr[let] > arr[min]) {
+    if (left < len && arr[left] > arr[min]) {
       min = left;
     }
     if (right < len && arr[right] > arr[min]) {
@@ -44,3 +44,13 @@ function heapSort(arr) {
     arr[j] = temp;
   }
 }
+
+/** 时间复杂度 
+ * sort对二叉树进行递归，不同层级的节点递归深度为log2 n
+ * 初始构建大根堆进行了(n / 2) * log2 n次循环，后续进行排序则进行了(n - 1) * log2 n次循环
+ * 即(n / 2) * log2 n + (n - 1) * log2 n，简化为O(n * log n)
+*/
+
+/** 空间复杂度 O(1)
+ * 算法进行原地排序，所以为O(1)
+ */

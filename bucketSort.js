@@ -4,7 +4,7 @@
  * @Author: 鹿角兔子
  * @Date: 2021-06-20 17:30:36
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-20 17:53:20
+ * @LastEditTime: 2021-06-20 23:54:34
  */
 
 function bucketSort(arr, size = 4) {
@@ -48,3 +48,16 @@ function insertionSort(array) {
 }
 
 console.log(bucketSort([2, 1, 11, 55, 44, 22]));
+
+/** 时间复杂度
+ * 桶分配时间随array长度增加而增加，即O(n)
+ * 将桶元素取出时间随最大值K和桶大小s决定，即O(K/s)
+ * 最好的情况：桶数量等于array长度，每个桶的长度皆为1，无需进行插入排序，即O(n + k / s)，简化为(n + k)
+ * 
+ * 最坏的情况：桶的数量只有1个，桶处理变得无意义，并对所有数据进行一次最坏插入排序，即O(n + n ^ 2 + 1)，简化为O(n ^ 2)
+ */
+
+/** 空间复杂度
+ * 新建bucket数组，长度由最大值K决定，每一个元素皆为数组
+ * 所有子元素数组长度相加等于array长度，即O(n + k)
+ */
