@@ -4,7 +4,7 @@
  * @Author: 鹿角兔子
  * @Date: 2021-06-20 16:43:19
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-20 23:16:19
+ * @LastEditTime: 2022-01-09 01:23:19
  */
 
 function heapSort(arr) {
@@ -25,17 +25,17 @@ function heapSort(arr) {
   function sort(arr, index) {
     let left = 2 * index + 1;
     let right = left + 1;
-    let min = index;
+    let max = index;
     // 比较左右子节点最大值
-    if (left < len && arr[left] > arr[min]) {
-      min = left;
+    if (left < len && arr[left] > arr[max]) {
+      max = left;
     }
-    if (right < len && arr[right] > arr[min]) {
-      min = right;
+    if (right < len && arr[right] > arr[max]) {
+      max = right;
     }
-    if (min !== index) {
-      swap(arr, min, index); // 交换根节点与最大子节点
-      sort(arr, min); // 继续比较以最小节点为根节点的子树
+    if (max !== index) {
+      swap(arr, max, index); // 交换根节点与最大子节点
+      sort(arr, max); // 继续比较以最大节点为根节点的子树
     }
   }
   function swap(arr, i, j) {

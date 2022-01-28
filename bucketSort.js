@@ -4,7 +4,7 @@
  * @Author: 鹿角兔子
  * @Date: 2021-06-20 17:30:36
  * @LastEditors: 鹿角兔子
- * @LastEditTime: 2021-06-20 23:54:34
+ * @LastEditTime: 2022-01-09 00:17:58
  */
 
 function bucketSort(arr, size = 4) {
@@ -27,7 +27,7 @@ function bucketSort(arr, size = 4) {
   }
 
   // 取出各个桶的元素
-  for (let j = 0; j < bucket.length; j++) {
+  for (let j in bucket) {
     const array = bucket[j] || [];
     result.push(...array);
   }
